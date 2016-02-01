@@ -1,0 +1,35 @@
+
+<form id="999120862">
+<property name="name" value="InitiateCase.CaseInitiation-taskform.form"/>
+<property name="displayMode" value="default"/>
+<property name="status" value="0"/>
+<field position="0" name="caze_caseAppointeeName" type="InputText" id="753875540">
+<property name="fieldRequired" value="false"/>
+<property name="label" value="quot;enquot;,quot;caseAppointeeName (caze)quot;"/>
+<property name="readonly" value="false"/>
+<property name="outputBinding" value="caze/caseAppointeeName"/>
+<property name="fieldClass" value="java.lang.String"/>
+</field>
+<field position="1" name="caze_caseId" type="InputTextInteger" id="419932718">
+<property name="fieldRequired" value="false"/>
+<property name="label" value="quot;enquot;,quot;caseId (caze)quot;"/>
+<property name="readonly" value="false"/>
+<property name="outputBinding" value="caze/caseId"/>
+<property name="fieldClass" value="java.lang.Integer"/>
+</field>
+<field position="2" name="caze_id" type="InputTextLong" id="1934378705">
+<property name="fieldRequired" value="false"/>
+<property name="label" value="quot;enquot;,quot;id (caze)quot;"/>
+<property name="readonly" value="false"/>
+<property name="outputBinding" value="caze/id"/>
+<property name="fieldClass" value="java.lang.Long"/>
+</field>
+<field position="3" name="caze_reason" type="InputText" id="148445983">
+<property name="fieldRequired" value="false"/>
+<property name="label" value="quot;enquot;,quot;reason (caze)quot;"/>
+<property name="readonly" value="false"/>
+<property name="outputBinding" value="caze/reason"/>
+<property name="fieldClass" value="java.lang.String"/>
+</field>
+<dataHolder inputId="" name="#E9E371" type="dataModelerEntry" outId="caze" value="uclaorg.uclagroup.initiatecase.Case" id="caze"/>
+</form>

@@ -1,0 +1,163 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<bpmn2:definitions xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:bpmn2="http://www.omg.org/spec/BPMN/20100524/MODEL" xmlns:bpmn20="http://www.omg.org/bpmn20" xmlns:bpmndi="http://www.omg.org/spec/BPMN/20100524/DI" xmlns:bpsim="http://www.bpsim.org/schemas/1.0" xmlns:color="http://www.omg.org/spec/BPMN/non-normative/color" xmlns:dc="http://www.omg.org/spec/DD/20100524/DC" xmlns:di="http://www.omg.org/spec/DD/20100524/DI" xmlns:drools="http://www.jboss.org/drools" xmlns="http://www.jboss.org/drools" xsi:schemaLocation="http://www.omg.org/spec/BPMN/20100524/MODEL BPMN20.xsd http://www.jboss.org/drools drools.xsd http://www.bpsim.org/schemas/1.0 bpsim.xsd" id="_brjtQMf7EeW5Vrc5XVhT-Q" exporter="jBPM Designer" exporterVersion="6.2.0" expressionLanguage="http://www.mvel.org/2.0" targetNamespace="http://www.omg.org/bpmn20" typeLanguage="http://www.java.com/javaTypes">
+  <bpmn2:itemDefinition id="_cazeItem" isCollection="false" structureRef="uclaorg.uclagroup.initiatecase.Case"/>
+  <bpmn2:itemDefinition id="__379654F9-D47B-42DE-84DB-87D15E381643_case_inInputXItem" isCollection="false" structureRef="uclaorg.uclagroup.initiatecase.Case"/>
+  <bpmn2:itemDefinition id="__379654F9-D47B-42DE-84DB-87D15E381643_SkippableInputXItem" isCollection="false" structureRef="Object"/>
+  <bpmn2:itemDefinition id="__379654F9-D47B-42DE-84DB-87D15E381643_GroupIdInputXItem" isCollection="false" structureRef="Object"/>
+  <bpmn2:itemDefinition id="__379654F9-D47B-42DE-84DB-87D15E381643_case-outOutputXItem" isCollection="false" structureRef="uclaorg.uclagroup.initiatecase.Case"/>
+  <bpmn2:itemDefinition id="ItemDefinition_5" isCollection="false" structureRef="String"/>
+  <bpmn2:itemDefinition id="ItemDefinition_6" isCollection="false" structureRef="Integer"/>
+  <bpmn2:itemDefinition id="ItemDefinition_7" isCollection="false" structureRef="Boolean"/>
+  <bpmn2:process id="InitiateCase.CaseInitiation" drools:version="1.0" drools:packageName="org.jbpm" drools:adHoc="false" name="CaseInitiation" isExecutable="true">
+    <bpmn2:property id="caze" itemSubjectRef="_cazeItem"/>
+    <bpmn2:startEvent id="processStartEvent" drools:selectable="true" color:background-color="#9acd32" color:border-color="#000000" color:color="#000000" name="">
+      <bpmn2:extensionElements>
+        <drools:metaData name="elementname">
+          <drools:metaValue><![CDATA[]]></drools:metaValue>
+        </drools:metaData>
+        <drools:metaData name="elementname">
+          <drools:metaValue><![CDATA[]]></drools:metaValue>
+        </drools:metaData>
+      </bpmn2:extensionElements>
+      <bpmn2:outgoing>_29D901F2-99E2-4BFF-8FBE-E17211236A23</bpmn2:outgoing>
+    </bpmn2:startEvent>
+    <bpmn2:scriptTask id="_34EE908D-E2A5-48CB-8593-2B33CDB155DE" drools:selectable="true" color:background-color="#fafad2" color:border-color="#000000" color:color="#000000" name="before-case" scriptFormat="http://www.java.com/java">
+      <bpmn2:extensionElements>
+        <drools:metaData name="elementname">
+          <drools:metaValue><![CDATA[before-case]]></drools:metaValue>
+        </drools:metaData>
+      </bpmn2:extensionElements>
+      <bpmn2:incoming>_29D901F2-99E2-4BFF-8FBE-E17211236A23</bpmn2:incoming>
+      <bpmn2:outgoing>SequenceFlow_1</bpmn2:outgoing>
+      <bpmn2:script>System.out.println(&quot;Before : &quot; + caze.getCaseId());</bpmn2:script>
+    </bpmn2:scriptTask>
+    <bpmn2:sequenceFlow id="_29D901F2-99E2-4BFF-8FBE-E17211236A23" drools:priority="1" drools:selectable="true" color:background-color="#000000" color:border-color="#000000" color:color="#000000" name="" sourceRef="processStartEvent" targetRef="_34EE908D-E2A5-48CB-8593-2B33CDB155DE"/>
+    <bpmn2:scriptTask id="_75401D5C-EB08-438F-87D4-B255A1F8E18B" drools:selectable="true" color:background-color="#fafad2" color:border-color="#000000" color:color="#000000" name="after-case" scriptFormat="http://www.java.com/java">
+      <bpmn2:extensionElements>
+        <drools:metaData name="elementname">
+          <drools:metaValue><![CDATA[after-case]]></drools:metaValue>
+        </drools:metaData>
+      </bpmn2:extensionElements>
+      <bpmn2:incoming>SequenceFlow_2</bpmn2:incoming>
+      <bpmn2:outgoing>_ED279AF2-B0E5-45A1-A749-21F83322DDD3</bpmn2:outgoing>
+      <bpmn2:script>System.out.println(&quot;After : &quot; + caze.getIsCaseInitiated());
+System.out.println(&quot;After : &quot; + caze.getCaseAppointeeName());</bpmn2:script>
+    </bpmn2:scriptTask>
+    <bpmn2:endEvent id="_8EBDE88A-6C0B-4A30-B256-20AD6F979CFE" drools:selectable="true" color:background-color="#ff6347" color:border-color="#000000" color:color="#000000" name="">
+      <bpmn2:extensionElements>
+        <drools:metaData name="elementname">
+          <drools:metaValue><![CDATA[]]></drools:metaValue>
+        </drools:metaData>
+        <drools:metaData name="elementname">
+          <drools:metaValue><![CDATA[]]></drools:metaValue>
+        </drools:metaData>
+      </bpmn2:extensionElements>
+      <bpmn2:incoming>_ED279AF2-B0E5-45A1-A749-21F83322DDD3</bpmn2:incoming>
+    </bpmn2:endEvent>
+    <bpmn2:sequenceFlow id="_ED279AF2-B0E5-45A1-A749-21F83322DDD3" drools:priority="1" drools:selectable="true" color:background-color="#000000" color:border-color="#000000" color:color="#000000" name="" sourceRef="_75401D5C-EB08-438F-87D4-B255A1F8E18B" targetRef="_8EBDE88A-6C0B-4A30-B256-20AD6F979CFE"/>
+    <bpmn2:sequenceFlow id="SequenceFlow_1" drools:priority="1" sourceRef="_34EE908D-E2A5-48CB-8593-2B33CDB155DE" targetRef="UserTask_1"/>
+    <bpmn2:userTask id="UserTask_1" name="Case Approval">
+      <bpmn2:incoming>SequenceFlow_1</bpmn2:incoming>
+      <bpmn2:outgoing>SequenceFlow_2</bpmn2:outgoing>
+      <bpmn2:ioSpecification id="_InputOutputSpecification_2">
+        <bpmn2:dataInput id="_DataInput_2" itemSubjectRef="ItemDefinition_5" name="TaskName"/>
+        <bpmn2:dataInput id="_DataInput_3" itemSubjectRef="ItemDefinition_6" name="Priority"/>
+        <bpmn2:dataInput id="_DataInput_4" itemSubjectRef="ItemDefinition_5" name="Comment"/>
+        <bpmn2:dataInput id="_DataInput_5" itemSubjectRef="ItemDefinition_5" name="GroupId"/>
+        <bpmn2:dataInput id="_DataInput_6" itemSubjectRef="ItemDefinition_7" name="Skippable"/>
+        <bpmn2:dataInput id="_DataInput_7" itemSubjectRef="ItemDefinition_5" name="Content"/>
+        <bpmn2:dataInput id="_DataInput_8" itemSubjectRef="ItemDefinition_5" name="Locale"/>
+        <bpmn2:dataInput id="DataInput_5" itemSubjectRef="__379654F9-D47B-42DE-84DB-87D15E381643_case-outOutputXItem" name="case_in"/>
+        <bpmn2:dataOutput id="DataOutput_1" itemSubjectRef="_cazeItem" name="case-out"/>
+        <bpmn2:inputSet id="_InputSet_2" name="Input Set 2">
+          <bpmn2:dataInputRefs>_DataInput_2</bpmn2:dataInputRefs>
+          <bpmn2:dataInputRefs>_DataInput_3</bpmn2:dataInputRefs>
+          <bpmn2:dataInputRefs>_DataInput_4</bpmn2:dataInputRefs>
+          <bpmn2:dataInputRefs>_DataInput_5</bpmn2:dataInputRefs>
+          <bpmn2:dataInputRefs>_DataInput_6</bpmn2:dataInputRefs>
+          <bpmn2:dataInputRefs>_DataInput_7</bpmn2:dataInputRefs>
+          <bpmn2:dataInputRefs>_DataInput_8</bpmn2:dataInputRefs>
+          <bpmn2:dataInputRefs>DataInput_5</bpmn2:dataInputRefs>
+        </bpmn2:inputSet>
+        <bpmn2:outputSet id="_OutputSet_2" name="Output Set">
+          <bpmn2:dataOutputRefs>DataOutput_1</bpmn2:dataOutputRefs>
+        </bpmn2:outputSet>
+      </bpmn2:ioSpecification>
+      <bpmn2:dataInputAssociation id="_DataInputAssociation_2">
+        <bpmn2:targetRef>_DataInput_2</bpmn2:targetRef>
+        <bpmn2:assignment id="Assignment_5">
+          <bpmn2:from xsi:type="bpmn2:tFormalExpression" id="FormalExpression_10">case-approval-by-admin</bpmn2:from>
+          <bpmn2:to xsi:type="bpmn2:tFormalExpression" id="FormalExpression_9">_DataInput_2</bpmn2:to>
+        </bpmn2:assignment>
+      </bpmn2:dataInputAssociation>
+      <bpmn2:dataInputAssociation id="_DataInputAssociation_3">
+        <bpmn2:targetRef>_DataInput_3</bpmn2:targetRef>
+      </bpmn2:dataInputAssociation>
+      <bpmn2:dataInputAssociation id="_DataInputAssociation_4">
+        <bpmn2:targetRef>_DataInput_4</bpmn2:targetRef>
+      </bpmn2:dataInputAssociation>
+      <bpmn2:dataInputAssociation id="_DataInputAssociation_5">
+        <bpmn2:targetRef>_DataInput_5</bpmn2:targetRef>
+        <bpmn2:assignment id="Assignment_8">
+          <bpmn2:from xsi:type="bpmn2:tFormalExpression" id="FormalExpression_16">PM</bpmn2:from>
+          <bpmn2:to xsi:type="bpmn2:tFormalExpression" id="FormalExpression_15">_DataInput_5</bpmn2:to>
+        </bpmn2:assignment>
+      </bpmn2:dataInputAssociation>
+      <bpmn2:dataInputAssociation id="_DataInputAssociation_6">
+        <bpmn2:targetRef>_DataInput_6</bpmn2:targetRef>
+      </bpmn2:dataInputAssociation>
+      <bpmn2:dataInputAssociation id="_DataInputAssociation_7">
+        <bpmn2:targetRef>_DataInput_7</bpmn2:targetRef>
+      </bpmn2:dataInputAssociation>
+      <bpmn2:dataInputAssociation id="_DataInputAssociation_8">
+        <bpmn2:targetRef>_DataInput_8</bpmn2:targetRef>
+      </bpmn2:dataInputAssociation>
+      <bpmn2:dataInputAssociation id="DataInputAssociation_5">
+        <bpmn2:sourceRef>caze</bpmn2:sourceRef>
+        <bpmn2:targetRef>DataInput_5</bpmn2:targetRef>
+      </bpmn2:dataInputAssociation>
+      <bpmn2:dataOutputAssociation id="DataOutputAssociation_1">
+        <bpmn2:sourceRef>DataOutput_1</bpmn2:sourceRef>
+        <bpmn2:targetRef>caze</bpmn2:targetRef>
+      </bpmn2:dataOutputAssociation>
+    </bpmn2:userTask>
+    <bpmn2:sequenceFlow id="SequenceFlow_2" drools:priority="1" sourceRef="UserTask_1" targetRef="_75401D5C-EB08-438F-87D4-B255A1F8E18B"/>
+  </bpmn2:process>
+  <bpmndi:BPMNDiagram id="_brjtUsf7EeW5Vrc5XVhT-Q">
+    <bpmndi:BPMNPlane id="_brjtU8f7EeW5Vrc5XVhT-Q" bpmnElement="InitiateCase.CaseInitiation">
+      <bpmndi:BPMNShape id="_brjtVMf7EeW5Vrc5XVhT-Q" bpmnElement="processStartEvent">
+        <dc:Bounds height="30.0" width="30.0" x="120.0" y="165.0"/>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="_brjtVcf7EeW5Vrc5XVhT-Q" bpmnElement="_34EE908D-E2A5-48CB-8593-2B33CDB155DE">
+        <dc:Bounds height="80.0" width="100.0" x="195.0" y="140.0"/>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="_brjtWcf7EeW5Vrc5XVhT-Q" bpmnElement="_75401D5C-EB08-438F-87D4-B255A1F8E18B">
+        <dc:Bounds height="80.0" width="100.0" x="485.0" y="140.0"/>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="_brkUUcf7EeW5Vrc5XVhT-Q" bpmnElement="_8EBDE88A-6C0B-4A30-B256-20AD6F979CFE">
+        <dc:Bounds height="28.0" width="28.0" x="630.0" y="166.0"/>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="BPMNShape_UserTask_1" bpmnElement="UserTask_1">
+        <dc:Bounds height="50.0" width="110.0" x="350.0" y="60.0"/>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNEdge id="_brjtVsf7EeW5Vrc5XVhT-Q" bpmnElement="_29D901F2-99E2-4BFF-8FBE-E17211236A23" sourceElement="_brjtVMf7EeW5Vrc5XVhT-Q" targetElement="_brjtVcf7EeW5Vrc5XVhT-Q">
+        <di:waypoint xsi:type="dc:Point" x="135.0" y="180.0"/>
+        <di:waypoint xsi:type="dc:Point" x="245.0" y="180.0"/>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="_brkUUsf7EeW5Vrc5XVhT-Q" bpmnElement="_ED279AF2-B0E5-45A1-A749-21F83322DDD3" sourceElement="_brjtWcf7EeW5Vrc5XVhT-Q" targetElement="_brkUUcf7EeW5Vrc5XVhT-Q">
+        <di:waypoint xsi:type="dc:Point" x="535.0" y="180.0"/>
+        <di:waypoint xsi:type="dc:Point" x="644.0" y="180.0"/>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="BPMNEdge_SequenceFlow_1" bpmnElement="SequenceFlow_1" sourceElement="_brjtVcf7EeW5Vrc5XVhT-Q" targetElement="BPMNShape_UserTask_1">
+        <di:waypoint xsi:type="dc:Point" x="245.0" y="140.0"/>
+        <di:waypoint xsi:type="dc:Point" x="245.0" y="85.0"/>
+        <di:waypoint xsi:type="dc:Point" x="350.0" y="85.0"/>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="BPMNEdge_SequenceFlow_2" bpmnElement="SequenceFlow_2" sourceElement="BPMNShape_UserTask_1" targetElement="_brjtWcf7EeW5Vrc5XVhT-Q">
+        <di:waypoint xsi:type="dc:Point" x="460.0" y="85.0"/>
+        <di:waypoint xsi:type="dc:Point" x="535.0" y="85.0"/>
+        <di:waypoint xsi:type="dc:Point" x="535.0" y="140.0"/>
+      </bpmndi:BPMNEdge>
+    </bpmndi:BPMNPlane>
+  </bpmndi:BPMNDiagram>
+</bpmn2:definitions>

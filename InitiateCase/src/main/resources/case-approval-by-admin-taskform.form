@@ -1,0 +1,47 @@
+
+<form id="1766494477">
+<property name="name" value="case-approval-by-admin-taskform.form"/>
+<property name="displayMode" value="default"/>
+<property name="status" value="0"/>
+<field position="0" name="caze_caseAppointeeName" type="InputText" id="1476096037">
+<property name="fieldRequired" value="false"/>
+<property name="label" value="quot;enquot;,quot;caseAppointeeName (caze)quot;"/>
+<property name="readonly" value="false"/>
+<property name="inputBinding" value="case_in/caseAppointeeName"/>
+<property name="outputBinding" value="case-out/caseAppointeeName"/>
+<property name="fieldClass" value="java.lang.String"/>
+</field>
+<field position="1" name="caze_caseId" type="InputTextInteger" id="665305767">
+<property name="fieldRequired" value="false"/>
+<property name="label" value="quot;enquot;,quot;caseId (caze)quot;"/>
+<property name="readonly" value="false"/>
+<property name="inputBinding" value="case_in/caseId"/>
+<property name="outputBinding" value="case-out/caseId"/>
+<property name="fieldClass" value="java.lang.Integer"/>
+</field>
+<field position="2" name="caze_id" type="InputTextLong" id="251461542">
+<property name="fieldRequired" value="false"/>
+<property name="label" value="quot;enquot;,quot;id (caze)quot;"/>
+<property name="readonly" value="false"/>
+<property name="inputBinding" value="case_in/id"/>
+<property name="outputBinding" value="case-out/id"/>
+<property name="fieldClass" value="java.lang.Long"/>
+</field>
+<field position="3" name="caze_isCaseInitiated" type="CheckBox" id="743149862">
+<property name="fieldRequired" value="false"/>
+<property name="label" value="quot;enquot;,quot;isCaseInitiated (caze)quot;"/>
+<property name="readonly" value="false"/>
+<property name="inputBinding" value="case_in/isCaseInitiated"/>
+<property name="outputBinding" value="case-out/isCaseInitiated"/>
+<property name="fieldClass" value="java.lang.Boolean"/>
+</field>
+<field position="4" name="caze_reason" type="InputText" id="1496608681">
+<property name="fieldRequired" value="false"/>
+<property name="label" value="quot;enquot;,quot;reason (caze)quot;"/>
+<property name="readonly" value="false"/>
+<property name="inputBinding" value="case_in/reason"/>
+<property name="outputBinding" value="case-out/reason"/>
+<property name="fieldClass" value="java.lang.String"/>
+</field>
+<dataHolder inputId="case_in" name="#E9E371" type="dataModelerEntry" outId="case-out" value="uclaorg.uclagroup.initiatecase.Case" id="caze"/>
+</form>
