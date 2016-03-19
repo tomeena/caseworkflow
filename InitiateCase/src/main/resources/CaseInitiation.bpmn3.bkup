@@ -4,113 +4,133 @@
   <bpmn2:itemDefinition id="_cazeItem" isCollection="false" structureRef="uclaorg.uclagroup.initiatecase.Case"/>
   <bpmn2:itemDefinition id="__8999E4D5-8727-490A-9F8C-50F74EAE1382_case_inInputXItem" isCollection="false" structureRef="uclaorg.uclagroup.initiatecase.Case"/>
   <bpmn2:itemDefinition id="__8999E4D5-8727-490A-9F8C-50F74EAE1382_case_outOutputXItem" isCollection="false" structureRef="uclaorg.uclagroup.initiatecase.Case"/>
-  <bpmn2:itemDefinition id="ItemDefinition_7" isCollection="false" structureRef="String"/>
-  <bpmn2:itemDefinition id="ItemDefinition_8" isCollection="false" structureRef="Integer"/>
-  <bpmn2:itemDefinition id="ItemDefinition_9" isCollection="false" structureRef="Boolean"/>
+  <bpmn2:itemDefinition id="ItemDefinition_1" isCollection="false" structureRef="String"/>
+  <bpmn2:itemDefinition id="ItemDefinition_2" isCollection="false" structureRef="Integer"/>
+  <bpmn2:itemDefinition id="ItemDefinition_3" isCollection="false" structureRef="Boolean"/>
   <bpmn2:process id="InitiateCase.CaseInitiation" drools:packageName="org.jbpm" drools:version="1.0" name="CaseInitiation" isExecutable="true">
     <bpmn2:property id="caze" itemSubjectRef="_cazeItem" name="caze"/>
     <bpmn2:startEvent id="processStartEvent" drools:selectable="true" color:background-color="#9acd32" color:border-color="#000000" color:color="#000000" name="">
+      <bpmn2:extensionElements>
+        <drools:metaData drools:name="elementname">
+          <drools:metaValue><![CDATA[]]></drools:metaValue>
+        </drools:metaData>
+        <drools:metaData drools:name="elementname">
+          <drools:metaValue><![CDATA[]]></drools:metaValue>
+        </drools:metaData>
+      </bpmn2:extensionElements>
       <bpmn2:outgoing>_1FB7FF93-691D-4B16-B127-67B8357D8F0D</bpmn2:outgoing>
     </bpmn2:startEvent>
-    <bpmn2:scriptTask id="_21EC6734-24FC-490D-A001-0C8134D3130A" drools:selectable="true" color:background-color="#fafad2" color:border-color="#000000" color:color="#000000" name="case-before" scriptFormat="http://www.java.com/java"> 
+    <bpmn2:scriptTask id="_21EC6734-24FC-490D-A001-0C8134D3130A" drools:selectable="true" color:background-color="#fafad2" color:border-color="#000000" color:color="#000000" name="case-before" scriptFormat="http://www.java.com/java">
+      <bpmn2:extensionElements>
+        <drools:metaData drools:name="elementname">
+          <drools:metaValue><![CDATA[case-before]]></drools:metaValue>
+        </drools:metaData>
+      </bpmn2:extensionElements>
       <bpmn2:incoming>_1FB7FF93-691D-4B16-B127-67B8357D8F0D</bpmn2:incoming>
       <bpmn2:outgoing>SequenceFlow_1</bpmn2:outgoing>
       <bpmn2:script>System.out.println(&quot;Before :: &quot; + caze.getCaseAppointeeName());</bpmn2:script>
     </bpmn2:scriptTask>
     <bpmn2:sequenceFlow id="_1FB7FF93-691D-4B16-B127-67B8357D8F0D" drools:selectable="true" color:background-color="#000000" color:border-color="#000000" color:color="#000000" sourceRef="processStartEvent" targetRef="_21EC6734-24FC-490D-A001-0C8134D3130A"/>
     <bpmn2:scriptTask id="_387686C3-D477-4DC9-B5B6-C7C9FFCB87AE" drools:selectable="true" color:background-color="#fafad2" color:border-color="#000000" color:color="#000000" name="case-after" scriptFormat="http://www.java.com/java">
+      <bpmn2:extensionElements>
+        <drools:metaData drools:name="elementname">
+          <drools:metaValue><![CDATA[case-after]]></drools:metaValue>
+        </drools:metaData>
+      </bpmn2:extensionElements>
       <bpmn2:incoming>SequenceFlow_2</bpmn2:incoming>
       <bpmn2:outgoing>_C4A055D8-A3B4-4CB5-8AF8-931C1199700D</bpmn2:outgoing>
       <bpmn2:script>System.out.println(&quot;after :: &quot; + caze.getCaseAppointeeName());
 System.out.println(&quot;after :: &quot; + caze.getIsCaseInitiated());</bpmn2:script>
     </bpmn2:scriptTask>
     <bpmn2:endEvent id="_EE4B08BD-14D9-4BA2-A41E-F3A8B2115292" drools:selectable="true" color:background-color="#ff6347" color:border-color="#000000" color:color="#000000" name="">
-     
+      <bpmn2:extensionElements>
+        <drools:metaData drools:name="elementname">
+          <drools:metaValue><![CDATA[]]></drools:metaValue>
+        </drools:metaData>
+        <drools:metaData drools:name="elementname">
+          <drools:metaValue><![CDATA[]]></drools:metaValue>
+        </drools:metaData>
+      </bpmn2:extensionElements>
       <bpmn2:incoming>_C4A055D8-A3B4-4CB5-8AF8-931C1199700D</bpmn2:incoming>
     </bpmn2:endEvent>
     <bpmn2:sequenceFlow id="_C4A055D8-A3B4-4CB5-8AF8-931C1199700D" drools:selectable="true" color:background-color="#000000" color:border-color="#000000" color:color="#000000" sourceRef="_387686C3-D477-4DC9-B5B6-C7C9FFCB87AE" targetRef="_EE4B08BD-14D9-4BA2-A41E-F3A8B2115292"/>
     <bpmn2:userTask id="UserTask_1" name="cas-validate">
-      
       <bpmn2:incoming>SequenceFlow_1</bpmn2:incoming>
       <bpmn2:outgoing>SequenceFlow_2</bpmn2:outgoing>
       <bpmn2:ioSpecification id="InputOutputSpecification_1">
-        <bpmn2:dataInput id="DataInput_7" itemSubjectRef="ItemDefinition_7" name="TaskName"/>
-        <bpmn2:dataInput id="DataInput_8" itemSubjectRef="ItemDefinition_8" name="Priority"/>
-        <bpmn2:dataInput id="DataInput_9" itemSubjectRef="ItemDefinition_7" name="Comment"/>
-        <bpmn2:dataInput id="DataInput_10" itemSubjectRef="ItemDefinition_7" name="Description"/>
-        <bpmn2:dataInput id="DataInput_11" itemSubjectRef="ItemDefinition_7" name="GroupId"/>
-        <bpmn2:dataInput id="DataInput_12" itemSubjectRef="ItemDefinition_9" name="Skippable"/>
-        <bpmn2:dataInput id="DataInput_13" itemSubjectRef="ItemDefinition_7" name="Content"/>
-        <bpmn2:dataInput id="DataInput_14" itemSubjectRef="ItemDefinition_7" name="Locale"/>
-        <bpmn2:dataInput id="DataInput_15" itemSubjectRef="ItemDefinition_7" name="CreatedBy"/>
-        <bpmn2:dataInput id="DataInput_34" itemSubjectRef="_cazeItem" name="case_in"/>
+        <bpmn2:dataInput id="DataInput_1" itemSubjectRef="ItemDefinition_1" name="TaskName"/>
+        <bpmn2:dataInput id="DataInput_2" itemSubjectRef="ItemDefinition_2" name="Priority"/>
+        <bpmn2:dataInput id="DataInput_3" itemSubjectRef="ItemDefinition_1" name="Comment"/>
+        <bpmn2:dataInput id="DataInput_4" itemSubjectRef="ItemDefinition_1" name="Description"/>
+        <bpmn2:dataInput id="DataInput_5" itemSubjectRef="ItemDefinition_1" name="GroupId"/>
+        <bpmn2:dataInput id="DataInput_6" itemSubjectRef="ItemDefinition_3" name="Skippable"/>
+        <bpmn2:dataInput id="DataInput_7" itemSubjectRef="ItemDefinition_1" name="Content"/>
+        <bpmn2:dataInput id="DataInput_8" itemSubjectRef="ItemDefinition_1" name="Locale"/>
+        <bpmn2:dataInput id="DataInput_9" itemSubjectRef="ItemDefinition_1" name="CreatedBy"/>
+        <bpmn2:dataInput id="DataInput_40" itemSubjectRef="_cazeItem" name="case_in"/>
         <bpmn2:dataOutput id="DataOutput_1" itemSubjectRef="_cazeItem" name="case_out"/>
-        <bpmn2:inputSet id="_InputSet_2">
+        <bpmn2:inputSet id="_InputSet_3">
+          <bpmn2:dataInputRefs>DataInput_1</bpmn2:dataInputRefs>
+          <bpmn2:dataInputRefs>DataInput_2</bpmn2:dataInputRefs>
+          <bpmn2:dataInputRefs>DataInput_3</bpmn2:dataInputRefs>
+          <bpmn2:dataInputRefs>DataInput_4</bpmn2:dataInputRefs>
+          <bpmn2:dataInputRefs>DataInput_5</bpmn2:dataInputRefs>
+          <bpmn2:dataInputRefs>DataInput_6</bpmn2:dataInputRefs>
           <bpmn2:dataInputRefs>DataInput_7</bpmn2:dataInputRefs>
           <bpmn2:dataInputRefs>DataInput_8</bpmn2:dataInputRefs>
           <bpmn2:dataInputRefs>DataInput_9</bpmn2:dataInputRefs>
-          <bpmn2:dataInputRefs>DataInput_10</bpmn2:dataInputRefs>
-          <bpmn2:dataInputRefs>DataInput_11</bpmn2:dataInputRefs>
-          <bpmn2:dataInputRefs>DataInput_12</bpmn2:dataInputRefs>
-          <bpmn2:dataInputRefs>DataInput_13</bpmn2:dataInputRefs>
-          <bpmn2:dataInputRefs>DataInput_14</bpmn2:dataInputRefs>
-          <bpmn2:dataInputRefs>DataInput_15</bpmn2:dataInputRefs>
-          <bpmn2:dataInputRefs>DataInput_34</bpmn2:dataInputRefs>
+          <bpmn2:dataInputRefs>DataInput_40</bpmn2:dataInputRefs>
         </bpmn2:inputSet>
         <bpmn2:outputSet id="OutputSet_1" name="Output Set">
           <bpmn2:dataOutputRefs>DataOutput_1</bpmn2:dataOutputRefs>
         </bpmn2:outputSet>
       </bpmn2:ioSpecification>
+      <bpmn2:dataInputAssociation id="DataInputAssociation_1">
+        <bpmn2:targetRef>DataInput_1</bpmn2:targetRef>
+        <bpmn2:assignment id="Assignment_1">
+          <bpmn2:from xsi:type="bpmn2:tFormalExpression" id="FormalExpression_1">case-validate</bpmn2:from>
+          <bpmn2:to xsi:type="bpmn2:tFormalExpression" id="FormalExpression_2">DataInput_1</bpmn2:to>
+        </bpmn2:assignment>
+      </bpmn2:dataInputAssociation>
+      <bpmn2:dataInputAssociation id="DataInputAssociation_2">
+        <bpmn2:targetRef>DataInput_2</bpmn2:targetRef>
+        <bpmn2:assignment id="Assignment_2">
+          <bpmn2:from xsi:type="bpmn2:tFormalExpression" id="FormalExpression_3">1</bpmn2:from>
+          <bpmn2:to xsi:type="bpmn2:tFormalExpression" id="FormalExpression_4">DataInput_2</bpmn2:to>
+        </bpmn2:assignment>
+      </bpmn2:dataInputAssociation>
+      <bpmn2:dataInputAssociation id="DataInputAssociation_3">
+        <bpmn2:targetRef>DataInput_3</bpmn2:targetRef>
+      </bpmn2:dataInputAssociation>
+      <bpmn2:dataInputAssociation id="DataInputAssociation_4">
+        <bpmn2:targetRef>DataInput_4</bpmn2:targetRef>
+      </bpmn2:dataInputAssociation>
+      <bpmn2:dataInputAssociation id="DataInputAssociation_5">
+        <bpmn2:targetRef>DataInput_5</bpmn2:targetRef>
+      </bpmn2:dataInputAssociation>
+      <bpmn2:dataInputAssociation id="DataInputAssociation_6">
+        <bpmn2:targetRef>DataInput_6</bpmn2:targetRef>
+        <bpmn2:assignment id="Assignment_6">
+          <bpmn2:from xsi:type="bpmn2:tFormalExpression" id="FormalExpression_11">true</bpmn2:from>
+          <bpmn2:to xsi:type="bpmn2:tFormalExpression" id="FormalExpression_12">DataInput_6</bpmn2:to>
+        </bpmn2:assignment>
+      </bpmn2:dataInputAssociation>
       <bpmn2:dataInputAssociation id="DataInputAssociation_7">
         <bpmn2:targetRef>DataInput_7</bpmn2:targetRef>
-        <bpmn2:assignment id="Assignment_7">
-          <bpmn2:from xsi:type="bpmn2:tFormalExpression" id="FormalExpression_13">case-validate</bpmn2:from>
-          <bpmn2:to xsi:type="bpmn2:tFormalExpression" id="FormalExpression_14">DataInput_7</bpmn2:to>
-        </bpmn2:assignment>
       </bpmn2:dataInputAssociation>
       <bpmn2:dataInputAssociation id="DataInputAssociation_8">
         <bpmn2:targetRef>DataInput_8</bpmn2:targetRef>
         <bpmn2:assignment id="Assignment_8">
-          <bpmn2:from xsi:type="bpmn2:tFormalExpression" id="FormalExpression_15">0</bpmn2:from>
+          <bpmn2:from xsi:type="bpmn2:tFormalExpression" id="FormalExpression_15">en-UK</bpmn2:from>
           <bpmn2:to xsi:type="bpmn2:tFormalExpression" id="FormalExpression_16">DataInput_8</bpmn2:to>
         </bpmn2:assignment>
       </bpmn2:dataInputAssociation>
       <bpmn2:dataInputAssociation id="DataInputAssociation_9">
         <bpmn2:targetRef>DataInput_9</bpmn2:targetRef>
       </bpmn2:dataInputAssociation>
-      <bpmn2:dataInputAssociation id="DataInputAssociation_10">
-        <bpmn2:targetRef>DataInput_10</bpmn2:targetRef>
-      </bpmn2:dataInputAssociation>
-      <bpmn2:dataInputAssociation id="DataInputAssociation_11">
-        <bpmn2:targetRef>DataInput_11</bpmn2:targetRef>
-        <bpmn2:assignment id="Assignment_11">
-          <bpmn2:from xsi:type="bpmn2:tFormalExpression" id="FormalExpression_21">PM</bpmn2:from>
-          <bpmn2:to xsi:type="bpmn2:tFormalExpression" id="FormalExpression_22">DataInput_11</bpmn2:to>
-        </bpmn2:assignment>
-      </bpmn2:dataInputAssociation>
-      <bpmn2:dataInputAssociation id="DataInputAssociation_12">
-        <bpmn2:targetRef>DataInput_12</bpmn2:targetRef>
-        <bpmn2:assignment id="Assignment_12">
-          <bpmn2:from xsi:type="bpmn2:tFormalExpression" id="FormalExpression_23">true</bpmn2:from>
-          <bpmn2:to xsi:type="bpmn2:tFormalExpression" id="FormalExpression_24">DataInput_12</bpmn2:to>
-        </bpmn2:assignment>
-      </bpmn2:dataInputAssociation>
-      <bpmn2:dataInputAssociation id="DataInputAssociation_13">
-        <bpmn2:targetRef>DataInput_13</bpmn2:targetRef>
-      </bpmn2:dataInputAssociation>
-      <bpmn2:dataInputAssociation id="DataInputAssociation_14">
-        <bpmn2:targetRef>DataInput_14</bpmn2:targetRef>
-        <bpmn2:assignment id="Assignment_14">
-          <bpmn2:from xsi:type="bpmn2:tFormalExpression" id="FormalExpression_27">en-UK</bpmn2:from>
-          <bpmn2:to xsi:type="bpmn2:tFormalExpression" id="FormalExpression_28">DataInput_14</bpmn2:to>
-        </bpmn2:assignment>
-      </bpmn2:dataInputAssociation>
-      <bpmn2:dataInputAssociation id="DataInputAssociation_15">
-        <bpmn2:targetRef>DataInput_15</bpmn2:targetRef>
-      </bpmn2:dataInputAssociation>
-      <bpmn2:dataInputAssociation id="DataInputAssociation_34">
+      <bpmn2:dataInputAssociation id="DataInputAssociation_40">
         <bpmn2:sourceRef>caze</bpmn2:sourceRef>
-        <bpmn2:targetRef>DataInput_34</bpmn2:targetRef>
+        <bpmn2:targetRef>DataInput_40</bpmn2:targetRef>
       </bpmn2:dataInputAssociation>
       <bpmn2:dataOutputAssociation id="DataOutputAssociation_1">
         <bpmn2:sourceRef>DataOutput_1</bpmn2:sourceRef>
@@ -124,51 +144,51 @@ System.out.println(&quot;after :: &quot; + caze.getIsCaseInitiated());</bpmn2:sc
     <bpmndi:BPMNPlane id="_3V67YspHEeW1utvAuHOZdw" bpmnElement="InitiateCase.CaseInitiation">
       <bpmndi:BPMNShape id="_3V67Y8pHEeW1utvAuHOZdw" bpmnElement="processStartEvent">
         <dc:Bounds height="30.0" width="30.0" x="120.0" y="165.0"/>
-        <bpmndi:BPMNLabel/>
+        <bpmndi:BPMNLabel id="BPMNLabel_1"/>
       </bpmndi:BPMNShape>
       <bpmndi:BPMNShape id="_3V67ZMpHEeW1utvAuHOZdw" bpmnElement="_21EC6734-24FC-490D-A001-0C8134D3130A">
         <dc:Bounds height="80.0" width="100.0" x="195.0" y="140.0"/>
-        <bpmndi:BPMNLabel>
+        <bpmndi:BPMNLabel id="BPMNLabel_2">
           <dc:Bounds height="11.0" width="49.0" x="220.0" y="174.0"/>
         </bpmndi:BPMNLabel>
       </bpmndi:BPMNShape>
       <bpmndi:BPMNShape id="_3V67aMpHEeW1utvAuHOZdw" bpmnElement="_387686C3-D477-4DC9-B5B6-C7C9FFCB87AE">
         <dc:Bounds height="80.0" width="100.0" x="485.0" y="140.0"/>
-        <bpmndi:BPMNLabel>
+        <bpmndi:BPMNLabel id="BPMNLabel_3">
           <dc:Bounds height="11.0" width="42.0" x="514.0" y="174.0"/>
         </bpmndi:BPMNLabel>
       </bpmndi:BPMNShape>
       <bpmndi:BPMNShape id="_3V67aspHEeW1utvAuHOZdw" bpmnElement="_EE4B08BD-14D9-4BA2-A41E-F3A8B2115292">
         <dc:Bounds height="28.0" width="28.0" x="630.0" y="166.0"/>
-        <bpmndi:BPMNLabel/>
+        <bpmndi:BPMNLabel id="BPMNLabel_4"/>
       </bpmndi:BPMNShape>
       <bpmndi:BPMNShape id="BPMNShape_UserTask_1" bpmnElement="UserTask_1">
-        <dc:Bounds height="50.0" width="110.0" x="400.0" y="255.0"/>
-        <bpmndi:BPMNLabel>
-          <dc:Bounds height="11.0" width="50.0" x="430.0" y="274.0"/>
+        <dc:Bounds height="50.0" width="110.0" x="360.0" y="255.0"/>
+        <bpmndi:BPMNLabel id="BPMNLabel_5">
+          <dc:Bounds height="11.0" width="50.0" x="390.0" y="274.0"/>
         </bpmndi:BPMNLabel>
       </bpmndi:BPMNShape>
       <bpmndi:BPMNEdge id="_3V67ZcpHEeW1utvAuHOZdw" bpmnElement="_1FB7FF93-691D-4B16-B127-67B8357D8F0D" sourceElement="_3V67Y8pHEeW1utvAuHOZdw" targetElement="_3V67ZMpHEeW1utvAuHOZdw">
         <di:waypoint xsi:type="dc:Point" x="135.0" y="180.0"/>
         <di:waypoint xsi:type="dc:Point" x="245.0" y="180.0"/>
-        <bpmndi:BPMNLabel/>
+        <bpmndi:BPMNLabel id="BPMNLabel_6"/>
       </bpmndi:BPMNEdge>
       <bpmndi:BPMNEdge id="_3V67a8pHEeW1utvAuHOZdw" bpmnElement="_C4A055D8-A3B4-4CB5-8AF8-931C1199700D" sourceElement="_3V67aMpHEeW1utvAuHOZdw" targetElement="_3V67aspHEeW1utvAuHOZdw">
         <di:waypoint xsi:type="dc:Point" x="535.0" y="180.0"/>
         <di:waypoint xsi:type="dc:Point" x="644.0" y="180.0"/>
-        <bpmndi:BPMNLabel/>
+        <bpmndi:BPMNLabel id="BPMNLabel_7"/>
       </bpmndi:BPMNEdge>
       <bpmndi:BPMNEdge id="BPMNEdge_SequenceFlow_1" bpmnElement="SequenceFlow_1" sourceElement="_3V67ZMpHEeW1utvAuHOZdw" targetElement="BPMNShape_UserTask_1">
         <di:waypoint xsi:type="dc:Point" x="245.0" y="220.0"/>
         <di:waypoint xsi:type="dc:Point" x="245.0" y="280.0"/>
-        <di:waypoint xsi:type="dc:Point" x="400.0" y="280.0"/>
-        <bpmndi:BPMNLabel/>
+        <di:waypoint xsi:type="dc:Point" x="360.0" y="280.0"/>
+        <bpmndi:BPMNLabel id="BPMNLabel_8"/>
       </bpmndi:BPMNEdge>
       <bpmndi:BPMNEdge id="BPMNEdge_SequenceFlow_2" bpmnElement="SequenceFlow_2" sourceElement="BPMNShape_UserTask_1" targetElement="_3V67aMpHEeW1utvAuHOZdw">
-        <di:waypoint xsi:type="dc:Point" x="510.0" y="280.0"/>
+        <di:waypoint xsi:type="dc:Point" x="470.0" y="280.0"/>
         <di:waypoint xsi:type="dc:Point" x="535.0" y="280.0"/>
         <di:waypoint xsi:type="dc:Point" x="535.0" y="220.0"/>
-        <bpmndi:BPMNLabel/>
+        <bpmndi:BPMNLabel id="BPMNLabel_9"/>
       </bpmndi:BPMNEdge>
     </bpmndi:BPMNPlane>
   </bpmndi:BPMNDiagram>
