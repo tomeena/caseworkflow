@@ -5,28 +5,114 @@ package uclaorg.uclagroup.casehappypath;
  */
 
 @javax.persistence.Entity
-public class CaseWorkflow implements java.io.Serializable {
+public class CaseWorkflow implements java.io.Serializable
+{
 
-    static final long serialVersionUID = 1L;
+   static final long serialVersionUID = 1L;
 
-    @javax.persistence.GeneratedValue(strategy = javax.persistence.GenerationType.AUTO, generator = "CASEWORKFLOW_ID_GENERATOR")
-    @javax.persistence.Id
-    @javax.persistence.SequenceGenerator(name = "CASEWORKFLOW_ID_GENERATOR", sequenceName = "CASEWORKFLOW_ID_SEQ")
-    private java.lang.Long id;
+   @javax.persistence.GeneratedValue(strategy = javax.persistence.GenerationType.AUTO, generator = "CASEWORKFLOW_ID_GENERATOR")
+   @javax.persistence.Id
+   @javax.persistence.SequenceGenerator(name = "CASEWORKFLOW_ID_GENERATOR", sequenceName = "CASEWORKFLOW_ID_SEQ")
+   private java.lang.Long id;
 
-    public CaseWorkflow() {
-    }
-    
-    public CaseWorkflow(java.lang.Long id) {
-        this.id = id;
-    }
+   private java.lang.Integer caseId;
 
-    public java.lang.Long getId() {
-        return this.id;
-    }
-    
-    public void setId(java.lang.Long id) {
-        this.id = id;
-    }
+   private java.lang.String caseAppointeeName;
+
+   private java.lang.Boolean daApproved;
+
+   private java.lang.Boolean saApproved;
+
+   private java.lang.Boolean sendToApo;
+
+   private java.lang.String outcomeReason;
+
+   public CaseWorkflow()
+   {
+   }
+
+   public java.lang.Long getId()
+   {
+      return this.id;
+   }
+
+   public void setId(java.lang.Long id)
+   {
+      this.id = id;
+   }
+
+   public java.lang.Integer getCaseId()
+   {
+      return this.caseId;
+   }
+
+   public void setCaseId(java.lang.Integer caseId)
+   {
+      this.caseId = caseId;
+   }
+
+   public java.lang.String getCaseAppointeeName()
+   {
+      return this.caseAppointeeName;
+   }
+
+   public void setCaseAppointeeName(java.lang.String caseAppointeeName)
+   {
+      this.caseAppointeeName = caseAppointeeName;
+   }
+
+   public java.lang.Boolean getDaApproved()
+   {
+      return this.daApproved;
+   }
+
+   public void setDaApproved(java.lang.Boolean daApproved)
+   {
+      this.daApproved = daApproved;
+   }
+
+   public java.lang.Boolean getSaApproved()
+   {
+      return this.saApproved;
+   }
+
+   public void setSaApproved(java.lang.Boolean saApproved)
+   {
+      this.saApproved = saApproved;
+   }
+
+   public java.lang.Boolean getSendToApo()
+   {
+      return this.sendToApo;
+   }
+
+   public void setSendToApo(java.lang.Boolean sendToApo)
+   {
+      this.sendToApo = sendToApo;
+   }
+
+   public java.lang.String getOutcomeReason()
+   {
+      return this.outcomeReason;
+   }
+
+   public void setOutcomeReason(java.lang.String outcomeReason)
+   {
+      this.outcomeReason = outcomeReason;
+   }
+
+   public CaseWorkflow(java.lang.Long id, java.lang.Integer caseId,
+         java.lang.String caseAppointeeName, java.lang.Boolean daApproved,
+         java.lang.Boolean saApproved, java.lang.Boolean sendToApo,
+         java.lang.String outcomeReason)
+   {
+      this.id = id;
+      this.caseId = caseId;
+      this.caseAppointeeName = caseAppointeeName;
+      this.daApproved = daApproved;
+      this.saApproved = saApproved;
+      this.sendToApo = sendToApo;
+      this.outcomeReason = outcomeReason;
+   }
 
 }
