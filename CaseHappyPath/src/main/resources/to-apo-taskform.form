@@ -1,0 +1,63 @@
+
+<form id="1592365382">
+<property name="name" value="to-apo-taskform.form"/>
+<property name="displayMode" value="default"/>
+<property name="status" value="0"/>
+<field position="3" name="caseWorkflow_id" type="InputTextLong" id="1506963409">
+<property name="fieldRequired" value="false"/>
+<property name="label" value="quot;enquot;,quot;id (caseWorkflow)quot;"/>
+<property name="readonly" value="false"/>
+<property name="inputBinding" value="apo_in/id"/>
+<property name="outputBinding" value="apo_out/id"/>
+<property name="fieldClass" value="java.lang.Long"/>
+</field>
+<field position="0" name="caseWorkflow_caseAppointeeName" type="InputText" id="1462616440">
+<property name="fieldRequired" value="false"/>
+<property name="label" value="quot;enquot;,quot;caseAppointeeName (caseWorkflow)quot;"/>
+<property name="readonly" value="false"/>
+<property name="inputBinding" value="apo_in/caseAppointeeName"/>
+<property name="outputBinding" value="apo_out/caseAppointeeName"/>
+<property name="fieldClass" value="java.lang.String"/>
+</field>
+<field position="2" name="caseWorkflow_daApproved" type="CheckBox" id="322334595">
+<property name="fieldRequired" value="false"/>
+<property name="label" value="quot;enquot;,quot;daApproved (caseWorkflow)quot;"/>
+<property name="readonly" value="false"/>
+<property name="inputBinding" value="apo_in/daApproved"/>
+<property name="outputBinding" value="apo_out/daApproved"/>
+<property name="fieldClass" value="java.lang.Boolean"/>
+</field>
+<field position="1" name="caseWorkflow_caseId" type="InputTextInteger" id="1790521744">
+<property name="fieldRequired" value="false"/>
+<property name="label" value="quot;enquot;,quot;caseId (caseWorkflow)quot;"/>
+<property name="readonly" value="false"/>
+<property name="inputBinding" value="apo_in/caseId"/>
+<property name="outputBinding" value="apo_out/caseId"/>
+<property name="fieldClass" value="java.lang.Integer"/>
+</field>
+<field position="6" name="caseWorkflow_sendToApo" type="CheckBox" id="1774087796">
+<property name="fieldRequired" value="false"/>
+<property name="label" value="quot;enquot;,quot;sendToApo (caseWorkflow)quot;"/>
+<property name="readonly" value="false"/>
+<property name="inputBinding" value="apo_in/sendToApo"/>
+<property name="outputBinding" value="apo_out/sendToApo"/>
+<property name="fieldClass" value="java.lang.Boolean"/>
+</field>
+<field position="4" name="caseWorkflow_outcomeReason" type="InputText" id="2103454267">
+<property name="fieldRequired" value="false"/>
+<property name="label" value="quot;enquot;,quot;outcomeReason (caseWorkflow)quot;"/>
+<property name="readonly" value="false"/>
+<property name="inputBinding" value="apo_in/outcomeReason"/>
+<property name="outputBinding" value="apo_out/outcomeReason"/>
+<property name="fieldClass" value="java.lang.String"/>
+</field>
+<field position="5" name="caseWorkflow_saApproved" type="CheckBox" id="53921784">
+<property name="fieldRequired" value="false"/>
+<property name="label" value="quot;enquot;,quot;saApproved (caseWorkflow)quot;"/>
+<property name="readonly" value="false"/>
+<property name="inputBinding" value="apo_in/saApproved"/>
+<property name="outputBinding" value="apo_out/saApproved"/>
+<property name="fieldClass" value="java.lang.Boolean"/>
+</field>
+<dataHolder inputId="apo_in" name="#E9E371" type="dataModelerEntry" outId="apo_out" value="uclaorg.uclagroup.casehappypath.CaseWorkflow" id="caseWorkflow"/>
+</form>
