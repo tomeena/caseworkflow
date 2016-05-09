@@ -1,0 +1,175 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- origin at X=0.0 Y=0.0 -->
+<bpmn2:definitions xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:bpmn2="http://www.omg.org/spec/BPMN/20100524/MODEL" xmlns:bpmndi="http://www.omg.org/spec/BPMN/20100524/DI" xmlns:dc="http://www.omg.org/spec/DD/20100524/DC" xmlns:di="http://www.omg.org/spec/DD/20100524/DI" xmlns:g="http://www.jboss.org/drools/flow/gpd" xmlns:java="http://www.java.com/javaTypes" xmlns:tns="http://www.jboss.org/drools" xmlns="http://www.jboss.org/drools" xsi:schemaLocation="http://www.omg.org/spec/BPMN/20100524/MODEL BPMN20.xsd http://www.jboss.org/drools drools.xsd http://www.bpsim.org/schemas/1.0 bpsim.xsd" id="Definition" exporter="org.eclipse.bpmn2.modeler.core" exporterVersion="1.1.4.Final" expressionLanguage="http://www.mvel.org/2.0" targetNamespace="http://www.jboss.org/drools" typeLanguage="http://www.java.com/javaTypes">
+  <bpmn2:itemDefinition id="_listItem" isCollection="false" structureRef="java.util.List"/>
+  <bpmn2:itemDefinition id="_loopconditionItem" isCollection="false" structureRef="java.lang.Integer"/>
+  <bpmn2:itemDefinition id="_6_multiInstanceItemType" isCollection="false"/>
+  <bpmn2:process id="com.sample.bpmn.multilooptest" name="Sample  Loop Test" isExecutable="true" processType="Private">
+    <bpmn2:property id="list" itemSubjectRef="_listItem" name="list"/>
+    <bpmn2:property id="loopcondition" itemSubjectRef="_loopconditionItem" name="loopcondition"/>
+    <bpmn2:startEvent id="_1" name="StartProcess">
+      <bpmn2:outgoing>_1-_6</bpmn2:outgoing>
+    </bpmn2:startEvent>
+    <bpmn2:endEvent id="_3" name="EndProcess">
+      <bpmn2:incoming>_5-_3</bpmn2:incoming>
+      <bpmn2:terminateEventDefinition id="TerminateEventDefinition_1"/>
+    </bpmn2:endEvent>
+    <bpmn2:scriptTask id="_5" name="PostLoopProcess">
+      <bpmn2:incoming>_6-_5</bpmn2:incoming>
+      <bpmn2:outgoing>_5-_3</bpmn2:outgoing>
+      <bpmn2:script>System.out.println(&quot;finished processing&quot;);
+</bpmn2:script>
+    </bpmn2:scriptTask>
+    <bpmn2:subProcess id="_6" name="Multiple Instances">
+      <bpmn2:incoming>_1-_6</bpmn2:incoming>
+      <bpmn2:outgoing>_6-_5</bpmn2:outgoing>
+      <bpmn2:ioSpecification id="InputOutputSpecification_1">
+        <bpmn2:dataInput id="_6_input" name="MultiInstanceInput"/>
+        <bpmn2:inputSet id="InputSet_1"/>
+        <bpmn2:outputSet id="OutputSet_1"/>
+      </bpmn2:ioSpecification>
+      <bpmn2:dataInputAssociation id="DataInputAssociation_1">
+        <bpmn2:sourceRef>list</bpmn2:sourceRef>
+        <bpmn2:targetRef>_6_input</bpmn2:targetRef>
+      </bpmn2:dataInputAssociation>
+      <bpmn2:multiInstanceLoopCharacteristics id="MultiInstanceLoopCharacteristics_1">
+        <bpmn2:loopDataInputRef>_6_input</bpmn2:loopDataInputRef>
+        <bpmn2:inputDataItem xsi:type="bpmn2:tDataInput" id="count" itemSubjectRef="_6_multiInstanceItemType" name="count"/>
+      </bpmn2:multiInstanceLoopCharacteristics>
+      <bpmn2:callActivity id="_6-2-1" name="Sub-Process" calledElement="multilooptest777">
+        <bpmn2:incoming>_6-2-3-_6-2-1</bpmn2:incoming>
+        <bpmn2:outgoing>_6-2-1-_6-2-4</bpmn2:outgoing>
+        <bpmn2:ioSpecification id="InputOutputSpecification_2">
+          <bpmn2:dataInput id="_6-2-1_loopconditionInput" name="loopcondition"/>
+          <bpmn2:dataInput id="_6-2-1_countInput" name="count"/>
+          <bpmn2:dataOutput id="_6-2-1_countOutput" name="count"/>
+          <bpmn2:inputSet id="InputSet_2">
+            <bpmn2:dataInputRefs>_6-2-1_loopconditionInput</bpmn2:dataInputRefs>
+            <bpmn2:dataInputRefs>_6-2-1_countInput</bpmn2:dataInputRefs>
+          </bpmn2:inputSet>
+          <bpmn2:outputSet id="OutputSet_2">
+            <bpmn2:dataOutputRefs>_6-2-1_countOutput</bpmn2:dataOutputRefs>
+          </bpmn2:outputSet>
+        </bpmn2:ioSpecification>
+        <bpmn2:dataInputAssociation id="DataInputAssociation_2">
+          <bpmn2:sourceRef>loopcondition</bpmn2:sourceRef>
+          <bpmn2:targetRef>_6-2-1_loopconditionInput</bpmn2:targetRef>
+        </bpmn2:dataInputAssociation>
+        <bpmn2:dataInputAssociation id="DataInputAssociation_3">
+          <bpmn2:sourceRef>count</bpmn2:sourceRef>
+          <bpmn2:targetRef>_6-2-1_countInput</bpmn2:targetRef>
+        </bpmn2:dataInputAssociation>
+        <bpmn2:dataOutputAssociation id="DataOutputAssociation_1">
+          <bpmn2:sourceRef>_6-2-1_countOutput</bpmn2:sourceRef>
+          <bpmn2:targetRef>count</bpmn2:targetRef>
+        </bpmn2:dataOutputAssociation>
+      </bpmn2:callActivity>
+      <bpmn2:startEvent id="_6-2-2" name="Start">
+        <bpmn2:outgoing>_6-2-2-_6-2-3</bpmn2:outgoing>
+      </bpmn2:startEvent>
+      <bpmn2:scriptTask id="_6-2-3" name="SetLoopCondition">
+        <bpmn2:incoming>_6-2-2-_6-2-3</bpmn2:incoming>
+        <bpmn2:outgoing>_6-2-3-_6-2-1</bpmn2:outgoing>
+        <bpmn2:script>System.out.println(&quot;Set the loop condition for the process that starts with: &quot; +count);
+
+kcontext.setVariable(&quot;count&quot;, count);
+kcontext.setVariable(&quot;loopcondition&quot;, count+4);</bpmn2:script>
+      </bpmn2:scriptTask>
+      <bpmn2:endEvent id="_6-2-4" name="End">
+        <bpmn2:incoming>_6-2-1-_6-2-4</bpmn2:incoming>
+      </bpmn2:endEvent>
+      <bpmn2:sequenceFlow id="_6-2-3-_6-2-1" sourceRef="_6-2-3" targetRef="_6-2-1"/>
+      <bpmn2:sequenceFlow id="_6-2-2-_6-2-3" sourceRef="_6-2-2" targetRef="_6-2-3"/>
+      <bpmn2:sequenceFlow id="_6-2-1-_6-2-4" sourceRef="_6-2-1" targetRef="_6-2-4"/>
+    </bpmn2:subProcess>
+    <bpmn2:sequenceFlow id="_5-_3" sourceRef="_5" targetRef="_3"/>
+    <bpmn2:sequenceFlow id="_6-_5" sourceRef="_6" targetRef="_5"/>
+    <bpmn2:sequenceFlow id="_1-_6" sourceRef="_1" targetRef="_6"/>
+  </bpmn2:process>
+  <bpmndi:BPMNDiagram id="BPMNDiagram_1">
+    <bpmndi:BPMNPlane id="BPMNPlane_Process_1" bpmnElement="com.sample.bpmn.multilooptest">
+      <bpmndi:BPMNShape id="BPMNShape_SubProcess_1" bpmnElement="_6" isExpanded="true">
+        <dc:Bounds height="150.0" width="423.0" x="27.0" y="158.0"/>
+        <bpmndi:BPMNLabel>
+          <dc:Bounds height="11.0" width="75.0" x="33.0" y="161.0"/>
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="BPMNShape_StartEvent_1" bpmnElement="_1">
+        <dc:Bounds height="48.0" width="48.0" x="210.0" y="27.0"/>
+        <bpmndi:BPMNLabel>
+          <dc:Bounds height="11.0" width="54.0" x="207.0" y="75.0"/>
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="BPMNShape_EndEvent_1" bpmnElement="_3">
+        <dc:Bounds height="48.0" width="48.0" x="522.0" y="375.0"/>
+        <bpmndi:BPMNLabel>
+          <dc:Bounds height="11.0" width="50.0" x="521.0" y="423.0"/>
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="BPMNShape_ScriptTask_1" bpmnElement="_5">
+        <dc:Bounds height="48.0" width="117.0" x="186.0" y="379.0"/>
+        <bpmndi:BPMNLabel>
+          <dc:Bounds height="11.0" width="73.0" x="208.0" y="397.0"/>
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="BPMNShape_CallActivity_1" bpmnElement="_6-2-1" isExpanded="true">
+        <dc:Bounds height="48.0" width="110.0" x="260.0" y="197.0"/>
+        <bpmndi:BPMNLabel>
+          <dc:Bounds height="11.0" width="53.0" x="288.0" y="215.0"/>
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="BPMNShape_StartEvent_2" bpmnElement="_6-2-2">
+        <dc:Bounds height="48.0" width="48.0" x="33.0" y="199.0"/>
+        <bpmndi:BPMNLabel>
+          <dc:Bounds height="11.0" width="20.0" x="47.0" y="247.0"/>
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="BPMNShape_ScriptTask_2" bpmnElement="_6-2-3">
+        <dc:Bounds height="48.0" width="117.0" x="107.0" y="197.0"/>
+        <bpmndi:BPMNLabel>
+          <dc:Bounds height="11.0" width="72.0" x="129.0" y="215.0"/>
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="BPMNShape_EndEvent_2" bpmnElement="_6-2-4">
+        <dc:Bounds height="48.0" width="48.0" x="381.0" y="247.0"/>
+        <bpmndi:BPMNLabel>
+          <dc:Bounds height="11.0" width="16.0" x="397.0" y="295.0"/>
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNEdge id="BPMNEdge_SequenceFlow_1" bpmnElement="_6-2-3-_6-2-1" sourceElement="BPMNShape_ScriptTask_2" targetElement="BPMNShape_CallActivity_1">
+        <di:waypoint xsi:type="dc:Point" x="224.0" y="221.0"/>
+        <di:waypoint xsi:type="dc:Point" x="242.0" y="221.0"/>
+        <di:waypoint xsi:type="dc:Point" x="260.0" y="221.0"/>
+        <bpmndi:BPMNLabel/>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="BPMNEdge_SequenceFlow_2" bpmnElement="_6-2-2-_6-2-3" sourceElement="BPMNShape_StartEvent_2" targetElement="BPMNShape_ScriptTask_2">
+        <di:waypoint xsi:type="dc:Point" x="81.0" y="223.0"/>
+        <di:waypoint xsi:type="dc:Point" x="94.0" y="223.0"/>
+        <di:waypoint xsi:type="dc:Point" x="94.0" y="221.0"/>
+        <di:waypoint xsi:type="dc:Point" x="107.0" y="221.0"/>
+        <bpmndi:BPMNLabel/>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="BPMNEdge_SequenceFlow_3" bpmnElement="_6-2-1-_6-2-4" sourceElement="BPMNShape_CallActivity_1" targetElement="BPMNShape_EndEvent_2">
+        <di:waypoint xsi:type="dc:Point" x="370.0" y="221.0"/>
+        <di:waypoint xsi:type="dc:Point" x="405.0" y="221.0"/>
+        <di:waypoint xsi:type="dc:Point" x="405.0" y="247.0"/>
+        <bpmndi:BPMNLabel/>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="BPMNEdge_SequenceFlow_4" bpmnElement="_5-_3" sourceElement="BPMNShape_ScriptTask_1" targetElement="BPMNShape_EndEvent_1">
+        <di:waypoint xsi:type="dc:Point" x="244.0" y="403.0"/>
+        <di:waypoint xsi:type="dc:Point" x="546.0" y="399.0"/>
+        <bpmndi:BPMNLabel/>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="BPMNEdge_SequenceFlow_5" bpmnElement="_6-_5" sourceElement="BPMNShape_SubProcess_1" targetElement="BPMNShape_ScriptTask_1">
+        <di:waypoint xsi:type="dc:Point" x="244.0" y="308.0"/>
+        <di:waypoint xsi:type="dc:Point" x="238.0" y="379.0"/>
+        <bpmndi:BPMNLabel/>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="BPMNEdge_SequenceFlow_6" bpmnElement="_1-_6" sourceElement="BPMNShape_StartEvent_1" targetElement="BPMNShape_SubProcess_1">
+        <di:waypoint xsi:type="dc:Point" x="238.0" y="75.0"/>
+        <di:waypoint xsi:type="dc:Point" x="234.0" y="158.0"/>
+        <bpmndi:BPMNLabel/>
+      </bpmndi:BPMNEdge>
+    </bpmndi:BPMNPlane>
+  </bpmndi:BPMNDiagram>
+</bpmn2:definitions>
